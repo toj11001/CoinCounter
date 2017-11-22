@@ -1,5 +1,5 @@
 figure
-image_original = imread('coinse.jpg');
+image_original = imread('coinsg.jpg');
 [row, col, page] = size(image_original) ;
 
 image_original=imresize(image_original,[1040,780]); 
@@ -8,8 +8,8 @@ image_original=imresize(image_original,[1040,780]);
 [number_5cents, area_5cents] = find_5cent(image_original);
 %used the area of the 5cent coin to resize image for distance variations
 
-if area_5cents>1000
-   % image_original = imresize(image_original, area_5cents/4160);
+if area_5cents<10000
+     image_original = imresize(image_original, 2.5);
 end
 
 subplot(2,5,2);

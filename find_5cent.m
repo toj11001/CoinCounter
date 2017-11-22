@@ -12,7 +12,7 @@ image_invert = 1-image_hole_fill;
 area_of_coin = sum(image_invert(:) == 0);
     
 r1 = 1;
-r2 = 15;
+r2 = 18;
 r3 = 2;
 
     
@@ -36,6 +36,7 @@ subplot(2,5,1);
 imshow(image_RGB_label);
 image_5cent_count = regionprops(image_labeled,'Area');
 number_of_5cents = length(image_5cent_count);
+area_of_coin = area_of_coin/number_of_5cents;
 % if number_of_5cents==1
 %     area_of_coin = cell2mat(squeeze(struct2cell(image_5cent_count)));
 % else
