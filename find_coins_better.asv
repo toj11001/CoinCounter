@@ -1,0 +1,13 @@
+function  [] = find_coins_better(image_color)
+
+image_gray = rgb2gray(image_color);
+image_normalised =double(image_gray)/255;
+figure
+subplot(2,5,3);
+imshow(image_normalised);
+
+
+
+
+
+end

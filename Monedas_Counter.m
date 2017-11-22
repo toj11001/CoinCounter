@@ -1,5 +1,5 @@
 figure
-image_original = imread('coinsf.jpg');
+image_original = imread('coinsg.jpg');
 [row, col, page] = size(image_original) ;
 
 image_original=imresize(image_original,[1040,780]); 
@@ -15,18 +15,24 @@ end
 
 subplot(2,5,2);
 imshow(image_original);
-[area_coins, number_coins, coins_cent] = find_number_coins(image_original);
+[area_coins, number_coins, coins_cent, coins_image] = find_number_coins(image_original);
  ratio = cell2mat(squeeze(struct2cell(area_coins)))/area_5cents;
-% for counter = 1: 1: number_coins
-    hold on
-   
-    if (ratio(1) >0.6) & (ratio(1)<0.8)
-       insertText(image_original,coins_cent(1,:),"2E");  
-    end
-   
-    hold off
-% end
-figure
-imshow(image_original);
+ figure
+ imshow(cell2mat(squeeze(struct2cell(coins_image(1,:)))));
+%  for counter = 1: 1: number_coins
+%     
+%    
+%     if (ratio(counter) >0.6) & (ratio(counter)<0.8)
+%        image_original = insertText(image_original,coins_cent(counter,:),num2str(2),'FontSize',38);  
+%        triggered = counter;
+%    elseif (ratio(counter) >0.4) & (ratio(counter)<0.5)
+%        image_original = insertText(image_original,coins_cent(counter,:),num2str(1),'FontSize',38); 
+%     end
+%     
+%    
+%     
+%  end
+% figure
+% imshow(image_original);
 disp("the total number of coins is ");
 disp(number_coins);

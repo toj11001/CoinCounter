@@ -1,4 +1,4 @@
-function[coins_area, number ,coins_cent] = find_number_coins(image_color)
+function[coins_area, number ,coins_cent,coins_image] = find_number_coins(image_color)
 
 image_gray = rgb2gray(image_color);
 image_normalised =double(image_gray)/255;
@@ -48,6 +48,7 @@ imshow(image_RGB_label);
 
 coins_area = regionprops(image_labeled,'Area');
 coins_cent = regionprops(image_labeled,'Centroid');
+coins_image = regionprops(image_labeled,'Image');
 coins_cent = cat(1,coins_cent.Centroid);
 
 number = length(cell2mat(squeeze(struct2cell(coins_area))));
