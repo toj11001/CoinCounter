@@ -7,8 +7,7 @@ image_erode_1=imerode(image_input,se1);
 image_dialate_1=imdilate(image_erode_1,se2);
 image_erode_dialate =imerode(image_dialate_1,se3);
 
-subplot(2,5,3);
-imshow(image_erode_dialate);
+
 
 image_cc = bwconncomp(1-image_erode_dialate);
 image_labeled = labelmatrix(image_cc);

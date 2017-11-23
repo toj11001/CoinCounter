@@ -1,6 +1,6 @@
 % function  [] = find_coins_better(image_color)
 
-image_original = imread('coinsg.jpg');
+image_original = imread('coins8.jpg');
 [row, col, page] = size(image_original) ;
 image_original=imresize(image_original,[1040,780]); 
 
@@ -19,11 +19,10 @@ image_BW_invert= 1-image_BW;
 image_fill = imfill(image_BW_invert,'holes');
 image_BW=1-image_fill;
 
-[image_result, area, perimeter ] = erode_dialate(image_BW,2,10,5);
-[image_result, area, perimeter ] = erode_dialate(image_result,2,10,5);
+[image_result, area, perimeter ] = loop_erode_dialate(image_BW,2,10,5,0.2);
+[image_result, area, perimeter ] = loop_erode_dialate(image_result,3,14,10,0.05);
 
 circularity = (perimeter .^ 2) ./ (4 * pi * area);
-
 
 
 % end
