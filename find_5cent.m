@@ -12,15 +12,15 @@ image_hole_fill = imfill(image_mask,'holes');
 image_invert = 1-image_hole_fill;
 area_of_coin = sum(image_invert(:) == 0);
  
-[image_result, area, perimeter ] = loop_erode_dialate(image_invert,2,10,5,0.2,2);
+[image_result, area, perimeter ] = loop_erode_dialate(image_invert,2,10,5,0.2,5);
 
 
 image_cc = bwconncomp(1-image_result);
 image_labeled = labelmatrix(image_cc);
 image_RGB_label = label2rgb(image_labeled);
 
-% subplot(3,4,3);
-%imshow(image_RGB_label);
+figure
+imshow(image_RGB_label);
 
 image_5cent_centroid = regionprops(image_labeled,'Centroid');
 number_of_5cents = length(image_5cent_centroid);

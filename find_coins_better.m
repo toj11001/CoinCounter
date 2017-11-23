@@ -1,4 +1,4 @@
-% function  [] = find_coins_better(image_color)
+
 
 image_original = imread('coins4.jpg');
 [row, col, page] = size(image_original) ;
@@ -40,7 +40,7 @@ coins_5cent_cent = cat(1,image_5cents_centroid.Centroid);
 for i=1:1:number_5cent
 
 for j=1:1:number_coins
-if abs(coins_5cent_cent(i,1)-coins_cent(j,1)) <5 && abs(coins_5cent_cent(i,2)-coins_cent(j,2)) <5
+if abs(coins_5cent_cent(i,1)-coins_cent(j,1)) <7 && abs(coins_5cent_cent(i,2)-coins_cent(j,2)) <7
 coin_5cent_loc(i) = j; 
 end
 end
@@ -62,19 +62,19 @@ ratio = area/coin_5cent_avg_area;
 for counter = 1:1: number_coins
     
     
-if (ratio(counter) >1.5) & (ratio(counter)<1.6)
+if (ratio(counter) >1.53) & (ratio(counter)<1.7)
        image_original = insertText(image_original,coins_cent(counter,:),num2str(2),'FontSize',24);
 end
-if (ratio(counter) >1.25) & (ratio(counter)<1.35)
+if (ratio(counter) >1.25) & (ratio(counter)<1.52)
        image_original = insertText(image_original,coins_cent(counter,:),num2str(0.5),'FontSize',24);
 end
-if (ratio(counter) >0.75) & (ratio(counter)<0.85)
+if (ratio(counter) >0.65) & (ratio(counter)<0.85)
        image_original = insertText(image_original,coins_cent(counter,:),num2str(0.1),'FontSize',24);
 end
-if (ratio(counter) >0.95) & (ratio(counter)<1.1)
+if (ratio(counter) >0.95) & (ratio(counter)<1.11)
        image_original = insertText(image_original,coins_cent(counter,:),num2str(0.2),'FontSize',24);
 end
-if (ratio(counter) >1.1) & (ratio(counter)<1.2)
+if (ratio(counter) >1.11) & (ratio(counter)<1.2)
        image_original = insertText(image_original,coins_cent(counter,:),num2str(1),'FontSize',24);
 end
 
