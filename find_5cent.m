@@ -19,8 +19,8 @@ image_cc = bwconncomp(1-image_result);
 image_labeled = labelmatrix(image_cc);
 image_RGB_label = label2rgb(image_labeled);
 
-figure
-imshow(image_RGB_label);
+% figure
+% imshow(image_RGB_label);
 
 image_5cent_centroid = regionprops(image_labeled,'Centroid');
 number_of_5cents = length(image_5cent_centroid);

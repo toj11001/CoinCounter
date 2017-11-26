@@ -1,6 +1,6 @@
 
 
-image_original = imread('coins7.jpg');
+image_original = imread('coins2.jpg');
 [row, col, page] = size(image_original) ;
 image_original=imresize(image_original,[1040,780]); 
 
@@ -73,8 +73,8 @@ coin_5cent_avg_area = coin_5cent_avg_area/number_5cent;
 
 
 figure('units','normalized','outerposition',[0 0 1 1])
-% subplot(1,2,2);
-% imshow(image_RGB_label);
+subplot(1,2,2);
+imshow(image_RGB_label);
 ratio = area/coin_5cent_avg_area;
 
 for counter = 1:1: number_coins
@@ -85,9 +85,6 @@ for counter = 1:1: number_coins
     elseif (ratio(counter) >1.25) & (ratio(counter)<1.52) & (coin_1_loc(counter) ~= 1)
        image_original = insertText(image_original,coins_cent(counter,:),num2str(0.5),'FontSize',24);
      
-    elseif (ratio(counter) >0.95) & (ratio(counter)<1.2) & (coin_1_loc(counter) ~= 1)
-       image_original = insertText(image_original,coins_cent(counter,:),num2str(0.2),'FontSize',24);
-   
        
     elseif (ratio(counter) >1.11) && (ratio(counter)<1.41) ||((coin_1_loc(counter) == 1) && (ratio(counter) >1.01) && (ratio(counter)<1.4))
        image_original = insertText(image_original,coins_cent(counter,:),num2str(1),'FontSize',24);
@@ -105,12 +102,11 @@ for counter = 1:1: number_coins
     elseif (ratio(counter) >0.95) & (ratio(counter)<1.11)
        image_original = insertText(image_original,coins_cent(counter,:),num2str(0.2),'FontSize',24);
     end
-
+% if (ratio(counter) >1.11) & (ratio(counter)<1.25)
+%        image_original = insertText(image_original,coins_cent(counter,:),num2str(1),'FontSize',24);
+% end
+ 
 
 end
-
-image_original = insertText(image_original,[0,0],cellstr("number of coins"),'FontSize',24);
-image_original = insertText(image_original,[210,0],num2str(number_coins),'FontSize',24);
-
-% subplot(1,2,1);
+subplot(1,2,1);
 imshow(image_original);
