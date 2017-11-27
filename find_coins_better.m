@@ -73,8 +73,8 @@ coin_5cent_avg_area = coin_5cent_avg_area/number_5cent;
 
 
 figure('units','normalized','outerposition',[0 0 1 1])
-% subplot(1,2,2);
-% imshow(image_RGB_label);
+subplot(1,2,2);
+imshow(image_RGB_label);
 ratio = area/coin_5cent_avg_area;
 
 for counter = 1:1: number_coins
@@ -112,5 +112,5 @@ end
 image_original = insertText(image_original,[0,0],cellstr("number of coins"),'FontSize',24);
 image_original = insertText(image_original,[210,0],num2str(number_coins),'FontSize',24);
 
-% subplot(1,2,1);
+subplot(1,2,1);
 imshow(image_original);
